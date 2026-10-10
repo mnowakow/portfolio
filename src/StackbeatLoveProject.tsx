@@ -1,7 +1,7 @@
 import { Image, Section, Body, ProjectHeader, type FactGroup, type ProjectLink } from "./ProjectPage";
 
-import interaction_png from "./assets/ein-ball-2000X.png";
-import coding_contexts_png from "./assets/zwei-balls-1500X.png";
+import interaction_png from "./assets/ein-ball-2000x.png";
+import coding_contexts_png from "./assets/zwei-balls-1500x.png";
 
 // --- page data -------------------------------------------------------
 
