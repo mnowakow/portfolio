@@ -1,6 +1,5 @@
 import { Typography, Card, CardBody } from "@material-tailwind/react";
 import {
-  ImagePlaceholder,
   Image,
   Section,
   Body,
@@ -201,7 +200,7 @@ pt = pt.matrixTransform(containerMatrix);`}</code>
           assumption made it hard to position short snippets rendered inside small
           H5P containers.
         </Body>
-        <ImagePlaceholder caption="Image: short snippet rendered in the LMS container" />
+        {/* <ImagePlaceholder caption="Image: short snippet rendered in the LMS container" /> */}
 
         <Typography type="h5" className="mt-4">
           The reporting limitation
