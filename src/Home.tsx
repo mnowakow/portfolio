@@ -54,7 +54,7 @@ function Home({ setPageId }: HomeProps) {
 
   return (
     <>
-      <header className="fixed md:top-0 md:left-0 z-50 flex w-full items-center justify-center gap-4 rounded-full border border-transparent bg-transparent px-2 py-2 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500">
+      <header className="fixed top-0 left-0 z-50 flex w-full items-center justify-center gap-4 border border-transparent md:rounded-full md:bg-transparent px-2 py-2 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500">
         <div className="flex max-w-full flex-col items-center gap-2 overflow-x-auto rounded-3xl border border-mauve-500 bg-mauve-100/50 p-1 shadow-md shadow-mauve-900/5 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 md:flex-row md:justify-center md:gap-8 md:rounded-full">
           <Tabs value={activeSection} onValueChange={setActiveSection} className="flex items-center justify-center gap-4 rounded-full">
             <Tabs.List className="flex h-11 items-center justify-center gap-1 rounded-full border border-transparent bg-amber-300 p-1 md:gap-4">
@@ -103,7 +103,7 @@ function Home({ setPageId }: HomeProps) {
         </div>
       </header>
 
-      <main>
+      <main className="pt-36 md:pt-0">
         {Object.entries(sectionMap).map(([key, element]) => (
           <div key={key}>{element}</div>
         ))}
