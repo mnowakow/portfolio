@@ -22,7 +22,7 @@ const LINKS: ProjectLink[] = [
     label: "Study documentation and full data analysis",
   },
   // TODO: internal link to the dedicated LOSCOPe case study page
-  { href: "#", label: "LOSCOPe (separate case study)" },
+  { href: "#loscope", label: "LOSCOPe (separate case study)" },
 ];
 
 // A compact results table, the concrete artifact of this page the way the

@@ -5,6 +5,7 @@ import {
   CardBody,
 } from "@material-tailwind/react";
 import type { ReactNode } from "react";
+import { ArrowRight, OpenNewWindow } from "iconoir-react";
 
 // Shared building blocks for the case study pages (VibeProject, DobProject,
 // LoscopeProject). Anything project specific, like a results table, stays in
@@ -119,9 +120,10 @@ export function LinksCard({ links }: { links: ProjectLink[] }) {
               key={l.href + l.label}
               href={l.href}
               {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="text-left hover:underline text-gray-500"
+              className="flex items-center gap-2 text-left hover:underline text-gray-500"
             >
               {l.label}
+              {isExternal ? <OpenNewWindow className="h-4 w-4 shrink-0" /> : <ArrowRight className="h-4 w-4 shrink-0" />}
             </a>
           );
         })}
