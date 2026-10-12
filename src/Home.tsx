@@ -1,7 +1,7 @@
 import { Button, Card, IconButton, Tabs, Timeline, Typography } from "@material-tailwind/react";
 import { GithubCircle, IconoirProvider, Linkedin, Mail, OpenNewWindow } from "iconoir-react";
 import { useState, useEffect, type JSX } from "react";
-import mn_portrait_1 from "./assets/mn_portrait_1.jpg";
+import mn_portrait_1 from "./assets/mn_portrait_3.png";
 import { bestPaperAward, publicationsByYear } from "./Publications";
 import type { pageIds } from "./Helper";
 
