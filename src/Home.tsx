@@ -248,7 +248,7 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold" color="secondary">
               Frontend &amp; UX Engineer
             </Typography>
-            <p className="text-sm text-gray-400">KreativInstitut.OWL / University of Paderborn · 06/2024 – 02/2026 · Detmold</p>
+            <p className="text-sm text-gray-400">KreativInstitut.OWL / University of Paderborn · 06/2024 – 01/2026 · Detmold</p>
             <p className="mt-2 text-gray-500">
               Full ownership of the UX process for digitizing music theatre production workflows with the Deutsche Oper Berlin — stakeholder interviews, requirements engineering, a
               React/Next.js/MongoDB prototype and Flutter prototypes for mobile use cases.
@@ -267,7 +267,7 @@ function Bio(): JSX.Element {
             </Typography>
             <p className="text-sm text-gray-400">Centre for Music and Film Informatics Detmold · 01/2021 – 03/2024 · Detmold</p>
             <p className="mt-2 text-gray-500">
-              Conceived and built the VIBE Music Notation Editor from scratch — a published open-source TypeScript module integrated into Moodle, ILIAS and Canvas. Ran quantitative UX studies with
+              Conceived and built the VIBE Music Notation Editor from scratch — a published open-source TypeScript module integrated into Moodle and ILIAS. Ran quantitative UX studies with
               statistical analysis in R, resulting in 4 academic publications.
             </p>
           </Timeline.Body>
@@ -322,7 +322,7 @@ function Bio(): JSX.Element {
           </Timeline.Header>
           <Timeline.Body className="text-left">
             <Typography type="h4" className="text-lg font-semibold" color="secondary">
-              B.Sc. Computer Science
+              Bachelor's Degree – Media Informatics
             </Typography>
             <p className="text-sm text-gray-400">Hochschule Düsseldorf (HSD) · 2014 – 2019</p>
             <p className="mt-2 text-gray-500">Thesis: "Deep Learning for Electroacoustic Music Transcription" — Best Paper Award, CMMR 2019.</p>
