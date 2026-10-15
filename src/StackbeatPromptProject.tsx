@@ -9,7 +9,7 @@ import {
   type ProjectLink,
 } from "./ProjectPage";
 
-import sb_prompt_png from "./assets/SB-promp.png";
+import sb_prompt_png from "./assets/SB-promp.webp";
 
 // --- page data -------------------------------------------------------
 
@@ -24,7 +24,6 @@ const LINKS: ProjectLink[] = [
   { href: "https://mnowakow.github.io/stackbeat-prompt/", label: "Live demo" },
   { href: "https://github.com/mnowakow/stackbeat-prompt", label: "Repository" },
   { href: "https://esolangs.org/wiki/StackBeat", label: "StackBeat, the language" },
-  // TODO: internal link to the StackBeat L.O.V.E. case study page
   { href: "#stackbeat-love", label: "StackBeat L.O.V.E. (the spatial follow-up)" },
 ];
 

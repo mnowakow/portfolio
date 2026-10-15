@@ -8,9 +8,9 @@ import {
   type ProjectLink,
 } from "./ProjectPage";
 
-import vibe_interface from "./assets/vibe-interface.png";
-import chrome_boxes from "./assets/chrome-boxes.png";
-import firefox_boxes from "./assets/firefox-boxes.png";
+import vibe_interface from "./assets/vibe-interface.webp";
+import chrome_boxes from "./assets/chrome-boxes.webp";
+import firefox_boxes from "./assets/firefox-boxes.webp";
 
 // --- page data -------------------------------------------------------
 
@@ -156,7 +156,7 @@ export default function VibeProject() {
           clusters. In the end I got somewhere by transforming the bounding client
           coordinates into the actual size of the container with matrix operations.
         </Body>
-        <Card className="border border-gray-100 bg-gray-900 shadow-none">
+        <Card className="border border-white/10 bg-gray-900 shadow-none">
           <CardBody>
             <pre className="overflow-x-auto text-left text-sm text-green-300">
               <code>{`var containerMatrix = container.getScreenCTM().inverse();

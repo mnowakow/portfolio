@@ -1,10 +1,10 @@
 import { Typography, Card, CardBody } from "@material-tailwind/react";
 import { Section, Body, ProjectHeader, Image, type FactGroup, type ProjectLink } from "./ProjectPage";
-import nav1 from "./assets/iter1-nav.png";
-import nav2 from "./assets/iter1-nav2.png";
-import annot from "./assets/iter1-annot.png";
-import diff from "./assets/iter1-diff.png";
-import interaction from "./assets/tablet-interaction.png";
+import nav1 from "./assets/iter1-nav.webp";
+import nav2 from "./assets/iter1-nav2.webp";
+import annot from "./assets/iter1-annot.webp";
+import diff from "./assets/iter1-diff.webp";
+import interaction from "./assets/tablet-interaction.webp";
 
 // --- page data -------------------------------------------------------
 
@@ -21,7 +21,6 @@ const LINKS: ProjectLink[] = [
     href: "https://git.uni-paderborn.de/kio/loscop/-/wikis/home",
     label: "Study documentation and full data analysis",
   },
-  // TODO: internal link to the dedicated LOSCOPe case study page
   { href: "#loscope", label: "LOSCOPe (separate case study)" },
 ];
 
@@ -34,11 +33,11 @@ function FindingsTable() {
     ["Scroll wheel", "Lower", "+0.377, lowest workload"],
   ];
   return (
-    <Card className="border border-gray-100 shadow-none">
+    <Card className="border border-white/10 shadow-none">
       <CardBody className="overflow-x-auto">
-        <table className="w-full text-left text-sm text-gray-500">
+        <table className="w-full text-left text-sm text-gray-300">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-white/10">
               <th className="py-2 pr-4 font-bold">Navigation concept</th>
               <th className="py-2 pr-4 font-bold">UX rating, no interruption</th>
               <th className="py-2 font-bold">Time divergence under interruption</th>
@@ -46,7 +45,7 @@ function FindingsTable() {
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr key={r[0]} className="border-b border-gray-50 last:border-0">
+              <tr key={r[0]} className="border-b border-white/5 last:border-0">
                 <td className="py-2 pr-4">{r[0]}</td>
                 <td className="py-2 pr-4">{r[1]}</td>
                 <td className="py-2 font-mono">{r[2]}</td>
@@ -254,7 +253,6 @@ export default function DobProject() {
       {/* TODO block, fill before publishing:
           - confirm Role, Stack and Methods chips (the prototype framework is a placeholder)
           - participant count for the study, if you want to state N
-          - internal link to the LOSCOPe case study page
           - real images: tablet prototype, three scenarios, divergence heatmap, a navigation or annotation GIF
       */}
     </article>

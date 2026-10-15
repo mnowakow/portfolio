@@ -28,8 +28,8 @@ export default function CookieBanner() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4">
-      <div className="flex w-full max-w-xl flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-white p-4 shadow-lg sm:flex-row sm:justify-between">
-        <Typography type="small" className="text-left text-gray-500">
+      <div className="flex w-full max-w-xl flex-col items-center gap-3 rounded-2xl border border-white/10 bg-zinc-900 p-4 shadow-lg sm:flex-row sm:justify-between">
+        <Typography type="small" className="text-left text-gray-300">
           No cookies here. This site does not use cookies, trackers or
           analytics, so there is nothing to ask your consent for.
         </Typography>

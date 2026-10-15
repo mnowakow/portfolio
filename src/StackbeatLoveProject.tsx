@@ -1,7 +1,7 @@
 import { Image, Section, Body, ProjectHeader, type FactGroup, type ProjectLink } from "./ProjectPage";
 
-import interaction_png from "./assets/ein-ball-2000x.png";
-import coding_contexts_png from "./assets/zwei-balls-1500x.png";
+import interaction_png from "./assets/ein-ball-2000x.webp";
+import coding_contexts_png from "./assets/zwei-balls-1500x.webp";
 
 // --- page data -------------------------------------------------------
 
@@ -16,7 +16,6 @@ const LINKS: ProjectLink[] = [
   { href: "https://github.com/mnowakow/StackBeat-L.O.V.E.", label: "Repository" },
   { href: "https://stackblitz.com/edit/iseaspace?file=package.json", label: "Run it on StackBlitz" },
   { href: "https://github.com/AudioGroupCologne/aframe-stackbeat", label: "aframe-stackbeat (base component)" },
-  // TODO: internal link to the StackBeat Prompt case study page
   { href: "#stackbeat-prompt", label: "A StackBeat Prompt (the language, in a browser tab)" },
 ];
 

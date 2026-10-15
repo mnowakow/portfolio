@@ -1,34 +1,30 @@
-// import {useState} from "react";
 import "./App.css";
 import Home from "./Home";
 import type { pageIds } from "./Helper";
-import { useCallback, useEffect, useState } from "react";
-import VibeProject from "./VibeProject";
-import LoscopeProject from "./LoscopeProject";
-import DobProject from "./DobProject";
-import DissBlog from "./DissBlog";
-import MeicoProject from "./MeicoProject";
-import StackbeatPromptProject from "./StackbeatPromptProject";
-import StackbeatLoveProject from "./StackbeatLoveProject";
-import JuceDartFfiProject from "./JuceDartFfiProject";
+import { lazy, Suspense, useCallback, useEffect, useState, type ComponentType, type LazyExoticComponent } from "react";
+import { ArrowLeft } from "iconoir-react";
 import CookieBanner from "./CookieBanner";
 import Footer from "./Footer";
 
-const validPageIds: pageIds[] = [
-  "home",
-  "vibe",
-  "loscope",
-  "dob",
-  "dissblog",
-  "meico",
-  "stackbeat-prompt",
-  "stackbeat-love",
-  "juce-dart-ffi",
-];
+type SubPageId = Exclude<pageIds, "home">;
+
+// Project pages are loaded on demand so the home page stays light.
+// "dissblog" is left out until it has real posts, see DissBlog.tsx.
+const pages: Partial<Record<SubPageId, { title: string; component: LazyExoticComponent<ComponentType> }>> = {
+  vibe: { title: "VIBE", component: lazy(() => import("./VibeProject")) },
+  loscope: { title: "LOSCOPe", component: lazy(() => import("./LoscopeProject")) },
+  dob: { title: "Digital Scores for the Opera", component: lazy(() => import("./DobProject")) },
+  meico: { title: "MEI to MusicXML, for meico", component: lazy(() => import("./MeicoProject")) },
+  "stackbeat-prompt": { title: "A StackBeat Prompt", component: lazy(() => import("./StackbeatPromptProject")) },
+  "stackbeat-love": { title: "StackBeat L.O.V.E.", component: lazy(() => import("./StackbeatLoveProject")) },
+  "juce-dart-ffi": { title: "JUCE, over FFI, into Flutter", component: lazy(() => import("./JuceDartFfiProject")) },
+};
+
+const SITE_TITLE = "Matthias Nowakowski · Research-based Product Engineer";
 
 function getPageFromHash(): pageIds {
   const hash = window.location.hash.replace("#", "");
-  return (validPageIds as string[]).includes(hash) ? (hash as pageIds) : "home";
+  return hash in pages ? (hash as pageIds) : "home";
 }
 
 function App() {
@@ -48,20 +44,46 @@ function App() {
       setActivePageState(getPageFromHash());
     }
     window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    window.addEventListener("popstate", onHashChange);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      window.removeEventListener("popstate", onHashChange);
+    };
   }, []);
+
+  // A new page should always start at the top, not where the last one was left.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const page = activePage === "home" ? undefined : pages[activePage];
+    document.title = page ? `${page.title} · Matthias Nowakowski` : SITE_TITLE;
+  }, [activePage]);
+
+  const page = activePage === "home" ? undefined : pages[activePage];
 
   return (
     <>
-      {activePage === "home" && <Home setPageId={setActivePage} />}
-      {activePage === "vibe" && <VibeProject />}
-      {activePage === "loscope" && <LoscopeProject />}
-      {activePage === "dob" && <DobProject />}
-      {activePage === "dissblog" && <DissBlog />}
-      {activePage === "meico" && <MeicoProject />}
-      {activePage === "stackbeat-prompt" && <StackbeatPromptProject />}
-      {activePage === "stackbeat-love" && <StackbeatLoveProject />}
-      {activePage === "juce-dart-ffi" && <JuceDartFfiProject />}
+      {page ? (
+        <>
+          <nav className="sticky top-0 z-40 flex px-6 py-3 backdrop-blur">
+            <a
+              href="./"
+              onClick={(e) => {
+                e.preventDefault();
+                setActivePage("home");
+              }}
+              className="flex items-center gap-2 rounded-full bg-amber-300 px-4 py-1.5 text-sm font-medium text-black hover:bg-amber-200"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to overview
+            </a>
+          </nav>
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <page.component />
+          </Suspense>
+        </>
+      ) : (
+        <Home setPageId={setActivePage} />
+      )}
       <Footer setPageId={setActivePage} />
       <CookieBanner />
     </>

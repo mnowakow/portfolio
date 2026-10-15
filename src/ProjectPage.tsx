@@ -36,7 +36,7 @@ export function Image({
 }) {
   return (
     <figure className="my-8 flex h-full flex-col">
-      <img src={src} alt={alt} className={className ?? "mx-auto rounded-xl"} />
+      <img src={src} alt={alt} loading="lazy" decoding="async" className={className ?? "mx-auto rounded-xl"} />
       {caption && (
         <figcaption className="mt-2 text-center text-sm text-gray-400">
           {caption}
@@ -49,7 +49,7 @@ export function Image({
 export function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
     <section id={id} className="mt-12 scroll-mt-24 text-gray-300">
-      <Typography type="h4" className="mb-4 text-center">
+      <Typography type="h4" className="mb-4 text-center text-gray-100">
         {title}
       </Typography>
       <div className="flex flex-col gap-4 text-gray-400">{children}</div>
@@ -67,7 +67,7 @@ export function Body({ children }: { children: ReactNode }) {
 
 export function CodeBlock({ children }: { children: ReactNode }) {
   return (
-    <Card className="border border-gray-100 shadow-none">
+    <Card className="border border-white/10 shadow-none">
       <CardBody className="overflow-x-auto bg-gray-900 py-4">
         <pre className="text-left font-mono text-xs leading-relaxed text-gray-100">
           {children}
@@ -81,7 +81,7 @@ export type FactGroup = { label: string; items: string[] };
 
 export function QuickFacts({ groups }: { groups: FactGroup[] }) {
   return (
-    <Card className="mt-6 border border-gray-100 shadow-none">
+    <Card className="mt-6 border border-white/10 shadow-none">
       <CardBody className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         {groups.map((g) => (
           <div key={g.label}>
@@ -90,7 +90,7 @@ export function QuickFacts({ groups }: { groups: FactGroup[] }) {
             </Typography>
             <div className="flex flex-wrap gap-2">
               {g.items.map((item) => (
-                <Chip key={item} variant="outline" size="sm">
+                <Chip key={item} variant="outline" color="secondary" size="sm">
                   <Chip.Label>{item}</Chip.Label>
                 </Chip>
               ))}
@@ -108,7 +108,7 @@ export type ProjectLink = { href: string; label: string };
 // route) and opens in the same tab; anything else opens in a new tab.
 export function LinksCard({ links }: { links: ProjectLink[] }) {
   return (
-    <Card className="mt-4 border border-gray-100 shadow-none">
+    <Card className="mt-4 border border-white/10 shadow-none">
       <CardBody className="flex flex-col gap-3">
         <Typography type="small" className="text-left font-bold text-gray-400">
           Links
@@ -120,7 +120,7 @@ export function LinksCard({ links }: { links: ProjectLink[] }) {
               key={l.href + l.label}
               href={l.href}
               {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="flex items-center gap-2 text-left hover:underline text-gray-500"
+              className="flex items-center gap-2 text-left hover:underline text-gray-300"
             >
               {l.label}
               {isExternal ? <OpenNewWindow className="h-4 w-4 shrink-0" /> : <ArrowRight className="h-4 w-4 shrink-0" />}
@@ -136,7 +136,7 @@ export function ProjectTags({ tags }: { tags: string[] }) {
   return (
     <div className="mb-4 flex flex-wrap gap-2">
       {tags.map((t) => (
-        <Chip key={t} variant="ghost" color="info" size="sm">
+        <Chip key={t} variant="ghost" color="primary" size="sm">
           <Chip.Label>{t}</Chip.Label>
         </Chip>
       ))}
@@ -161,7 +161,7 @@ export function ProjectHeader({
     <header>
       <ProjectTags tags={tags} />
 
-      <Typography type="h1" className="mb-3 text-center">
+      <Typography type="h1" className="mb-3 text-center text-4xl text-gray-100 md:text-5xl lg:text-5xl">
         {title}
       </Typography>
       <Typography type="lead" className="text-left text-gray-400">

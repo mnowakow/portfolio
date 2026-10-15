@@ -1,7 +1,7 @@
 import { Typography, Card, CardBody } from "@material-tailwind/react";
 import { Section, Body, CodeBlock, ProjectHeader, type FactGroup, type ProjectLink, Image } from "./ProjectPage";
-import loscopemodel from "./assets/loscope_model.png";
-import loscopestate from "./assets/losocpe-states.png";
+import loscopemodel from "./assets/loscope_model.webp";
+import loscopestate from "./assets/losocpe-states.webp";
 // --- page data -------------------------------------------------------
 
 const TAGS = ["Data Visualization", "Research Tooling", "Information Design", "Full-Stack Development", "Next.js", "Graph Layout"];
@@ -18,7 +18,6 @@ const FACT_GROUPS: FactGroup[] = [
 const LINKS: ProjectLink[] = [
   { href: "https://kio.pages.git.uni-paderborn.de/loscop", label: "Live graph, hosted on GitLab Pages" },
   { href: "https://git.uni-paderborn.de/kio/loscop", label: "Repository" },
-  // TODO: internal link to the Digital Scores for the Opera case study page
   { href: "#dob", label: "Digital Scores for the Opera (parent case study)" },
 ];
 
@@ -48,18 +47,18 @@ function CollectionsTable() {
     ["modifications", "A change made to a document state, with its reason and author"],
   ];
   return (
-    <Card className="border border-gray-100 shadow-none">
+    <Card className="border border-white/10 shadow-none">
       <CardBody className="overflow-x-auto">
-        <table className="w-full text-left text-sm text-gray-500">
+        <table className="w-full text-left text-sm text-gray-300">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr className="border-b border-white/10">
               <th className="py-2 pr-4 font-bold">Collection</th>
               <th className="py-2 font-bold">What it holds</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr key={r[0]} className="border-b border-gray-50 last:border-0">
+              <tr key={r[0]} className="border-b border-white/5 last:border-0">
                 <td className="py-2 pr-4 font-mono">{r[0]}</td>
                 <td className="py-2">{r[1]}</td>
               </tr>
@@ -210,8 +209,6 @@ return (await exported.json()).map(flattenOid);`}
       </Section>
 
       {/* TODO block, fill before publishing:
-          - confirm the live GitLab Pages URL still resolves before linking it
-          - internal link to the Digital Scores for the Opera case study page
           - real images: full graph overview, filtered cross trade view
           - decide whether to name the Deutsche Oper explicitly or anonymize it here too
       */}

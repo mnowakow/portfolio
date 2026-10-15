@@ -7,7 +7,7 @@ import {
   type ProjectLink,
 } from "./ProjectPage";
 
-import meico_screenshot_png from "./assets/meico-screenshot_01.png";
+import meico_screenshot_png from "./assets/meico-screenshot_01.webp";
 
 // --- page data -------------------------------------------------------
 
