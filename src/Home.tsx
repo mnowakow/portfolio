@@ -1,5 +1,5 @@
 import { Button, Card, IconButton, Tabs, Timeline, Typography } from "@material-tailwind/react";
-import { GithubCircle, IconoirProvider, Linkedin, Mail, OpenNewWindow } from "iconoir-react";
+import { IconoirProvider, OpenNewWindow } from "iconoir-react";
 import { useState, useEffect, type JSX } from "react";
 import mn_portrait_1 from "./assets/mn_portrait_3.webp";
 import dob_preview from "./assets/tablet-interaction.webp";
@@ -7,6 +7,7 @@ import loscope_preview from "./assets/loscope_model.webp";
 import vibe_preview from "./assets/vibe-interface.webp";
 import { bestPaperAward, publicationsByYear } from "./Publications";
 import type { pageIds } from "./Helper";
+import { SOCIAL_LINKS } from "./socialLinks";
 
 interface HomeProps {
   setPageId: (id: pageIds) => void;
@@ -21,11 +22,6 @@ const TAB_LABELS: Record<string, string> = { "side-projects": "SIDE PROJECTS" };
 // Module level on purpose: survives a detour to a project page, resets on reload.
 let sideTabUnlockedThisLoad = false;
 
-const SOCIAL_LINKS = [
-  { href: "https://github.com/mnowakow", label: "GitHub", icon: <GithubCircle /> },
-  { href: "https://www.linkedin.com/in/matthias-nowakowski-b07555168/", label: "LinkedIn", icon: <Linkedin /> },
-  { href: "mailto:matthias.nowakowski+portfolio@gmail.com", label: "Email", icon: <Mail /> },
-];
 
 function Home({ setPageId }: HomeProps) {
   const sectionMap: Record<(typeof SECTION_IDS)[number], JSX.Element> = {

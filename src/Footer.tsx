@@ -1,12 +1,8 @@
 import { IconButton, Typography } from "@material-tailwind/react";
-import { GithubCircle, IconoirProvider, Linkedin, Mail } from "iconoir-react";
+import { IconoirProvider } from "iconoir-react";
 import type { pageIds } from "./Helper";
+import { SOCIAL_LINKS } from "./socialLinks";
 
-const SOCIAL_LINKS = [
-  { href: "https://github.com/mnowakow", label: "GitHub", icon: <GithubCircle /> },
-  { href: "https://www.linkedin.com/in/matthias-nowakowski-b07555168/", label: "LinkedIn", icon: <Linkedin /> },
-  { href: "mailto:matthias.nowakowski+portfolio@gmail.com", label: "Email", icon: <Mail /> },
-];
 
 interface FooterProps {
   setPageId: (id: pageIds) => void;
