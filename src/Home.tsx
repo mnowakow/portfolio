@@ -145,26 +145,25 @@ export default Home;
 
 function Hello(): JSX.Element {
   return (
-    <section id="hello" className="flex flex-col items-center justify-center gap-16 px-8 pt-12 pb-32 md:pt-24">
-      <div className="flex flex-col items-center gap-12 md:flex-row md:gap-20">
-        <div className="flex translate-y-0 flex-col gap-8">
-          <Typography type="h1" className="whitespace-nowrap text-right text-4xl leading-tight font-bold text-gray-100 md:text-5xl lg:text-5xl">
+    <section id="hello" className="flex flex-col items-center justify-center gap-20 px-8 pt-16 pb-32 md:gap-32 md:pt-44">
+      <div className="flex w-full flex-col items-center gap-14 lg:w-auto lg:flex-row lg:gap-24">
+        <div className="flex w-full translate-y-0 flex-col gap-10 text-center md:gap-12 lg:w-auto lg:text-right">
+          <Typography type="h1" className="m-0 text-balance text-4xl leading-tight font-bold text-gray-100 md:text-5xl lg:whitespace-nowrap lg:text-5xl">
             Matthias Nowakowski
           </Typography>
-          <Typography type="h2" className="whitespace-nowrap text-right text-2xl leading-tight font-semibold text-amber-300 md:text-3xl lg:text-3xl">
+          <Typography type="h2" className="m-0 text-balance text-2xl leading-tight font-semibold text-amber-300 md:text-3xl lg:whitespace-nowrap lg:text-3xl">
             Research-based Product Engineer
           </Typography>
-          <Typography type="h3" className="whitespace-nowrap text-right text-xl leading-tight text-gray-400 md:text-2xl lg:text-2xl">
+          <Typography type="h3" className="m-0 text-balance text-xl leading-tight text-gray-400 md:text-2xl lg:whitespace-nowrap lg:text-2xl">
             I build the software, <br /> you do the creative work.
-            <br />
-            <br /> Understand. Build. Ship.
           </Typography>
+          <p className="text-xl leading-tight text-gray-400 md:text-2xl">Understand. Build. Ship.</p>
         </div>
         <div className="aspect-square w-full max-w-md overflow-hidden rounded-[3rem] rounded-bl-none">
           <img src={mn_portrait_1} alt="Portrait of Matthias Nowakowski" className="h-full w-full scale-[1.5] translate-y-[23%] object-cover object-[40%_50%]" />
         </div>
       </div>
-      <div className="flex max-w-3xl flex-col gap-4">
+      <div className="flex w-full max-w-3xl flex-col gap-6">
         <p className="text-left leading-normal text-lg text-gray-400">
          I came to software through music. I studied musicology with a focus on electroacoustic music, where you think in sound and structure rather than notes on a page. That instinct never left me.
         </p>
@@ -185,7 +184,7 @@ type ProjectTeaser = { id: pageIds; title: string; description: JSX.Element; ima
 
 function ProjectCard({ project, setPageId }: { project: ProjectTeaser; setPageId: HomeProps["setPageId"] }): JSX.Element {
   return (
-    <Card className="flex w-80 flex-col overflow-hidden">
+    <Card className="flex w-full max-w-80 flex-col overflow-hidden">
       {project.image && (
         <Card.Header as="img" src={project.image} alt={project.imageAlt ?? ""} loading="lazy" className="m-0 h-44 w-full rounded-none object-cover object-top" />
       )}
@@ -202,7 +201,7 @@ function ProjectCard({ project, setPageId }: { project: ProjectTeaser; setPageId
             {project.title}
           </Typography>
         </a>
-        <Typography className="my-1 text-foreground">{project.description}</Typography>
+        <Typography className="mt-3 text-foreground">{project.description}</Typography>
       </Card.Body>
       <Card.Footer>
         <Button onClick={() => setPageId(project.id)}>Project Details</Button>
@@ -249,11 +248,11 @@ const USE_CASES: ProjectTeaser[] = [
 
 function UseCases({ setPageId }: HomeProps): JSX.Element {
   return (
-    <section id="use-cases" className="flex scroll-mt-24 flex-col items-center justify-center gap-4 px-8 pt-12 pb-32">
+    <section id="use-cases" className="flex scroll-mt-24 flex-col items-center justify-center gap-12 px-8 pt-12 pb-32">
       <Typography type="h2" className="text-3xl font-semibold text-gray-100 md:text-4xl lg:text-4xl">
         Use Cases
       </Typography>
-      <div className="flex flex-row flex-wrap items-stretch justify-center gap-4">
+      <div className="flex flex-row flex-wrap items-stretch justify-center gap-8">
         {USE_CASES.map((p) => (
           <ProjectCard key={p.id} project={p} setPageId={setPageId} />
         ))}
@@ -264,11 +263,11 @@ function UseCases({ setPageId }: HomeProps): JSX.Element {
 
 function Bio(): JSX.Element {
   return (
-    <section id="bio" className="flex scroll-mt-24 flex-col items-center gap-8 px-8 pt-12 pb-32">
+    <section id="bio" className="flex scroll-mt-24 flex-col items-center gap-12 px-8 pt-12 pb-32">
       <Typography type="h2" className="text-3xl font-semibold text-gray-100 md:text-4xl lg:text-4xl">
         Biography
       </Typography>
-      <Timeline orientation="vertical" className="w-full max-w-2xl">
+      <Timeline orientation="vertical" className="w-full max-w-3xl">
         <Timeline.Item>
           <Timeline.Header>
             <Timeline.Icon />
@@ -278,8 +277,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               Frontend &amp; UX Engineer
             </Typography>
-            <p className="text-sm text-gray-400">KreativInstitut.OWL / University of Paderborn · 06/2024 – 01/2026 · Detmold</p>
-            <p className="mt-2 text-gray-400">
+            <p className="mt-1 text-sm text-gray-400">KreativInstitut.OWL / University of Paderborn · 06/2024 – 01/2026 · Detmold</p>
+            <p className="mt-3 text-gray-400">
               Full ownership of the UX process for digitizing music theatre production workflows with the Deutsche Oper Berlin — stakeholder interviews, requirements engineering, a
               React/Next.js/MongoDB prototype and Flutter prototypes for mobile use cases.
             </p>
@@ -295,8 +294,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               Frontend &amp; UX Engineer
             </Typography>
-            <p className="text-sm text-gray-400">Centre for Music and Film Informatics Detmold · 01/2021 – 03/2024 · Detmold</p>
-            <p className="mt-2 text-gray-400">
+            <p className="mt-1 text-sm text-gray-400">Centre for Music and Film Informatics Detmold · 01/2021 – 03/2024 · Detmold</p>
+            <p className="mt-3 text-gray-400">
               Conceived and built the VIBE Music Notation Editor from scratch — a published open-source TypeScript module integrated into Moodle and ILIAS. Ran quantitative UX studies with
               statistical analysis in R, resulting in 4 academic publications.
             </p>
@@ -312,8 +311,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               IT Consultant
             </Typography>
-            <p className="text-sm text-gray-400">SER Group Deutschland GmbH · 06/2019 – 12/2020 · Bonn</p>
-            <p className="mt-2 text-gray-400">Consulting and implementation of enterprise content management solutions; customization of production systems using Java, VB and Groovy.</p>
+            <p className="mt-1 text-sm text-gray-400">SER Group Deutschland GmbH · 06/2019 – 12/2020 · Bonn</p>
+            <p className="mt-3 text-gray-400">Consulting and implementation of enterprise content management solutions; customization of production systems using Java, VB and Groovy.</p>
           </Timeline.Body>
         </Timeline.Item>
 
@@ -326,8 +325,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               Research Internship – Deep Learning
             </Typography>
-            <p className="text-sm text-gray-400">Fraunhofer IDMT · 10/2018 – 02/2019 · Ilmenau</p>
-            <p className="mt-2 text-gray-400">Deep learning architectures for electroacoustic music transcription — basis of the award-winning Bachelor's thesis (Best Paper Award, CMMR 2019).</p>
+            <p className="mt-1 text-sm text-gray-400">Fraunhofer IDMT · 10/2018 – 02/2019 · Ilmenau</p>
+            <p className="mt-3 text-gray-400">Deep learning architectures for electroacoustic music transcription — basis of the award-winning Bachelor's thesis (Best Paper Award, CMMR 2019).</p>
           </Timeline.Body>
         </Timeline.Item>
 
@@ -340,8 +339,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               Backend Developer (Working Student)
             </Typography>
-            <p className="text-sm text-gray-400">meinestadt.de GmbH · 03/2018 – 09/2018</p>
-            <p className="mt-2 text-gray-400">Backend development with Java 8 / Spring, MySQL and MongoDB in agile Scrum/Kanban teams.</p>
+            <p className="mt-1 text-sm text-gray-400">meinestadt.de GmbH · 03/2018 – 09/2018</p>
+            <p className="mt-3 text-gray-400">Backend development with Java 8 / Spring, MySQL and MongoDB in agile Scrum/Kanban teams.</p>
           </Timeline.Body>
         </Timeline.Item>
 
@@ -354,8 +353,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               Bachelor's Degree – Media Informatics
             </Typography>
-            <p className="text-sm text-gray-400">Hochschule Düsseldorf (HSD) · 2014 – 2019</p>
-            <p className="mt-2 text-gray-400">Thesis: "Deep Learning for Electroacoustic Music Transcription" — Best Paper Award, CMMR 2019.</p>
+            <p className="mt-1 text-sm text-gray-400">Hochschule Düsseldorf (HSD) · 2014 – 2019</p>
+            <p className="mt-3 text-gray-400">Thesis: "Deep Learning for Electroacoustic Music Transcription" — Best Paper Award, CMMR 2019.</p>
           </Timeline.Body>
         </Timeline.Item>
 
@@ -367,8 +366,8 @@ function Bio(): JSX.Element {
             <Typography type="h4" className="text-lg font-semibold text-gray-100 md:text-xl lg:text-xl">
               M.A. Musicology
             </Typography>
-            <p className="text-sm text-gray-400">University of Cologne · 2008 – 2015</p>
-            <p className="mt-2 text-gray-400">Interdisciplinary foundation for domain-specific software in music and culture.</p>
+            <p className="mt-1 text-sm text-gray-400">University of Cologne · 2008 – 2015</p>
+            <p className="mt-3 text-gray-400">Interdisciplinary foundation for domain-specific software in music and culture.</p>
           </Timeline.Body>
         </Timeline.Item>
       </Timeline>
@@ -406,6 +405,11 @@ function SideProjects({ setPageId }: HomeProps): JSX.Element {
       title: "JUCE, over FFI, into Flutter",
       description: <>A cross-platform audio engine bridged into Flutter, built as the foundation for an app that reads a live video image as if it were a score.</>,
     },
+    // {
+    //   id: "pianorama",
+    //   title: "Pianorama",
+    //   description: <>A mobile app that reads the colors in front of the camera like a pianola roll and plays them live on a native C++ synthesizer.</>,
+    // },
   ];
 
   return (
@@ -414,13 +418,13 @@ function SideProjects({ setPageId }: HomeProps): JSX.Element {
         <Typography type="h2" className="text-3xl font-semibold text-gray-100 md:text-4xl lg:text-4xl">
           Side and Passion Projects
         </Typography>
-        <div className="flex max-w-3xl flex-col gap-4">
+        <div className="flex max-w-3xl flex-col gap-6">
           <p className="text-lg text-gray-400">
             Hi there, again! Now you are leaving the main sections of my portfolio. This part only joins the navigation above once you get here, because it is not the main focus of my work, but I invite you to get a
             more complete picture of me and what I am passionate about.
           </p>
         </div>
-        <div className="flex flex-row flex-wrap items-stretch justify-center gap-4">
+        <div className="flex flex-row flex-wrap items-stretch justify-center gap-8">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} setPageId={setPageId} />
           ))}
@@ -438,7 +442,7 @@ function Research(): JSX.Element {
         Research
       </Typography>
 
-      <div className="flex w-4/5 max-w-5xl flex-col gap-12 text-left">
+      <div className="flex w-full max-w-3xl flex-col gap-12 text-left">
         {/* <div className="flex flex-col gap-4">
           <Typography type="h3" className="text-2xl font-semibold text-gray-100 md:text-2xl lg:text-2xl">
             Dissertation
@@ -459,17 +463,17 @@ function Research(): JSX.Element {
           <Button onClick={() => setPageId("dissblog")}>Read the blog →</Button>
         </div> */}
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           <Typography type="h3" className="text-2xl font-semibold text-gray-100 md:text-2xl lg:text-2xl">
             Publications
           </Typography>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-10">
             {publicationsByYear.map(({ year, entries }) => (
               <div key={year}>
                 <Typography type="h4" className="text-lg font-semibold text-gray-400 md:text-lg lg:text-lg">
                   {year}
                 </Typography>
-                <ul className="mt-2 flex flex-col gap-3">
+                <ul className="mt-4 flex flex-col gap-6">
                   {entries.map((pub) => (
                     <li key={pub.title}>
                       <div className="flex items-center gap-2">
@@ -482,7 +486,7 @@ function Research(): JSX.Element {
                           <p className="font-medium text-white">{pub.title}</p>
                         )}
                       </div>
-                      <p className="text-sm text-gray-400">
+                      <p className="mt-1 text-sm text-gray-400">
                         {pub.authors} · {pub.venue}
                       </p>
                     </li>
@@ -495,7 +499,7 @@ function Research(): JSX.Element {
               <Typography type="h4" className="text-lg font-semibold text-gray-400 md:text-lg lg:text-lg">
                 Best Paper Award
               </Typography>
-              <ul className="mt-2">
+              <ul className="mt-4">
                 <li>
                   <div className="flex items-center gap-2">
                     <a href={bestPaperAward.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-medium text-white hover:underline">
@@ -503,7 +507,7 @@ function Research(): JSX.Element {
                       <OpenNewWindow className="h-4 w-4 shrink-0" />
                     </a>
                   </div>
-                  <p className="text-sm text-gray-400">{bestPaperAward.description}</p>
+                  <p className="mt-1 text-sm text-gray-400">{bestPaperAward.description}</p>
                 </li>
               </ul>
             </div>

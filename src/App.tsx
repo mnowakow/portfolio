@@ -18,6 +18,7 @@ const pages: Partial<Record<SubPageId, { title: string; component: LazyExoticCom
   "stackbeat-prompt": { title: "A StackBeat Prompt", component: lazy(() => import("./StackbeatPromptProject")) },
   "stackbeat-love": { title: "StackBeat L.O.V.E.", component: lazy(() => import("./StackbeatLoveProject")) },
   "juce-dart-ffi": { title: "JUCE, over FFI, into Flutter", component: lazy(() => import("./JuceDartFfiProject")) },
+  // pianorama: { title: "Pianorama", component: lazy(() => import("./PianoramaProject")) },
 };
 
 const SITE_TITLE = "Matthias Nowakowski · Research-based Product Engineer";
